@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table tr td {
+            padding-left: 10px;
+            border: 1px solid black;
+            
+        }
+        table{
+            cellspacing="0"
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点一下</button>
+    <table id="tab"cellspacing="0" cellpadding="0"></table>
+</body>
+
+</html>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+    $("#btn").click(function() {
+        var xhr = new XMLHttpRequest;
+        xhr.open('get','newsList.php',true);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    var ta = document.getElementById('tab');
+                    var html = "";
+                    for (var i = 0; i < data.length; i++) {
+                        html += '<tr><td><a href="">'+data[i].title+'</a></td> [<td><span>'+data[i].date+'</span></td>]</tr>';
+                    }
+                    ta.innerHTML = html;
+                } else {
+                    alert('出错了,Err：' + xhr.status);
+                }
+            }
+
+        }
+    })
+
+</script>

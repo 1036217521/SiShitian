@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			#zong{
+				width: 800px;
+				height: 245px;
+				border: 1px solid black;
+				margin: auto;
+			}
+			.box li{
+				list-style: none;
+				width: 25%;
+				height: 49px;
+				background-color: #ADD8E6;
+				cursor: pointer;
+				color: blue;
+				font-size: 20px;
+				line-height: 49px;
+				text-align: center;
+			}
+			.box li:hover{
+				background-color: blue;
+				color: white;
+			}
+			.neirong ol{
+				position: absolute;
+				top: 20px;
+				left: 600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="zong">
+			<div class="box">
+				<li v-on:click="n=0">首页</li>
+				<li v-on:click="n=1">菜单1</li>
+				<li v-on:click="n=2">菜单2</li>
+				<li v-on:click="n=3">菜单3</li>
+				<li v-on:click="n=4">菜单4</li>
+			</div>
+			<div class="neirong">
+				<div v-if="n==0">
+					<ol>
+						<li><h1>我是首页</h1></li>
+					</ol>
+				</div>
+				<div v-if="n==1">
+					<ol>
+						<li>告白气球</li>
+						<li>晴天</li>
+						<li>稻香</li>
+					</ol>
+				</div>
+				<div v-if="n==2">
+					<ol>
+						<li>2</li>
+						<li>2</li>
+						<li>2</li>
+					</ol>
+				</div>
+				<div v-if="n==3">
+					<ol>
+						<li>3</li>
+						<li>2</li>
+						<li>3</li>
+					</ol>
+				</div>
+				<div v-if="n==4">
+					<ol>
+						<li>4</li>
+						<li>4</li>
+						<li>4</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="vue2.min.js"></script>
+<script>
+	new Vue ({
+	 	el:'#zong',
+		data:{
+		    n:0
+		}
+	})
+</script>
